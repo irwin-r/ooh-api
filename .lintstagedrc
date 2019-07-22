@@ -1,6 +1,6 @@
 {
-    "*.mjs": [
-      "eslint --fix",
-      "git add"
-    ]
+  "*.mjs": [
+    "eslint --fix",
+    "git add"
+  ]
 }
