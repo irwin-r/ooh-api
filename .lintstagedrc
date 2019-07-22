@@ -1,0 +1,6 @@
+{
+  "*.mjs": [
+    "eslint --fix",
+    "git add"
+  ]
+}
