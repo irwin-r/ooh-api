@@ -14,9 +14,7 @@ export function getEnvironment() {
       return currentEnvironment;
 
     default:
-      throw new Error(
-        `Unexpected environment "${currentEnvironment}" provided!`
-      );
+      throw new Error(`Unexpected environment "${currentEnvironment}" provided!`);
   }
 }
 
