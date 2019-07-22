@@ -35,4 +35,6 @@ export default sequelize => {
       tableName: "asset",
     }
   );
+
+  return Asset;
 };
