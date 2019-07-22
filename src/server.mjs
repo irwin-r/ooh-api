@@ -1,3 +1,4 @@
+import bodyParser from "body-parser";
 import express from "express";
 import pino from "express-pino-logger";
 
@@ -6,13 +7,12 @@ import routes from "./routes";
 
 export default class Server {
   static get middlewares() {
-    return [pino(), routes, exceptions];
+    return [bodyParser.json(), pino(), routes, exceptions];
   }
 
   constructor() {
     this.app = express();
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const middleware of Server.middlewares) {
       this.app.use(middleware);
     }

@@ -36,4 +36,6 @@ export default sequelize => {
     foreignKey: "shoppingCentreId",
     targetKey: "shoppingCentreId",
   });
+
+  return ShoppingCentre;
 };

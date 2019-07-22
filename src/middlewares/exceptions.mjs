@@ -13,7 +13,6 @@ export default (err, req, res, next) => {
 
   const { headers, payload, statusCode } = err.output;
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const [header, value] of Object.entries(headers)) {
     res.setHeader(header, value);
   }

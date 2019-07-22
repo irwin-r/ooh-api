@@ -1,9 +1,11 @@
 import Router from "express";
 
+import assets from "./assets";
+import shoppingCentres from "./shopping_centres";
+
 const router = new Router();
 
-router.get("/hello", (req, res) => {
-  res.json({ hello: "world" });
-});
+router.use("/assets", assets);
+router.use("/shopping_centres", shoppingCentres);
 
 export default router;
