@@ -16,6 +16,8 @@ So, with this technical test, I've opted to utilise a relatively vanilla Express
 - [Pino](https://github.com/pinojs/pino) - A very fast logging library, although in hindsight, there wasn't much logging :p
 - [Sequelize](https://github.com/sequelize/sequelize) - By far the heaviest dependency in the project.  A full-blown, multi-flavour, SQL ORM
 
+Also, none of this was derived from any third-party boilerplate.  Feel free to scrutinise the commit history to see how this project got to where it is :P
+
 ## Checklist
 
 - [x] **MUST** have an API server written in JavaScript
