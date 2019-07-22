@@ -1,0 +1,8 @@
+{
+  "lint-staged": {
+    "*.mjs": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}
