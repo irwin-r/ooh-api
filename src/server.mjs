@@ -1,16 +1,21 @@
 import express from "express";
+import pino from "express-pino-logger";
 
 import exceptions from "./middlewares/exceptions";
 import routes from "./routes";
 
 export default class Server {
+  static get middlewares() {
+    return [pino(), routes, exceptions];
+  }
+
   constructor() {
     this.app = express();
 
-    this.app.use(exceptions);
-    this.app.use(routes);
-
-    this.app.use(exceptions);
+    // eslint-disable-next-line no-restricted-syntax
+    for (const middleware of Server.middlewares) {
+      this.app.use(middleware);
+    }
   }
 
   async listen(port) {
