@@ -3,6 +3,16 @@ import Celebrate from "celebrate";
 // Celebrate is set up funnily so we can't import these directly :(
 const { celebrate, Joi } = Celebrate;
 
+export const GET_ALL_ASSETS_SCHEMA = celebrate({
+  query: {
+    active: Joi.boolean(),
+    limit: Joi.number().positive(),
+    name: Joi.string(),
+    offset: Joi.number().positive(),
+    shoppingCentreId: Joi.string().uuid({ version: "uuidv4" }),
+  },
+});
+
 export const GET_ASSET_SCHEMA = celebrate({
   params: {
     assetId: Joi.string()

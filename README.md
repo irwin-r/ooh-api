@@ -28,7 +28,7 @@ Also, none of this was derived from any third-party boilerplate.  Feel free to s
 - [ ] **SHOULD** track which user makes changes to the data
 - [x] **SHOULD** allow marking Assets “inactive” for when they’re receiving maintenance, and re-activating them later
 - [ ] **COULD** have a UI (but don’t worry about UX)
-- [ ] **COULD** support searching for Assets by Name, Shopping Centre, or Status
+- [x] **COULD** support searching for Assets by Name, Shopping Centre, or Status
 
 ## Install
 

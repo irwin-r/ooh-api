@@ -1,11 +1,13 @@
 import Boom from "@hapi/boom";
 import Router from "express";
+import Op from "sequelize/lib/operators";
 
 import { Asset } from "../../../models";
 import asyncMiddleware from "../../../middlewares/async";
 
 import {
   DELETE_ASSET_SCHEMA,
+  GET_ALL_ASSETS_SCHEMA,
   GET_ASSET_SCHEMA,
   PATCH_ASSET_SCHEMA,
   POST_ASSET_SCHEMA,
@@ -16,8 +18,24 @@ const router = Router({ mergeParams: true });
 
 router.get(
   "/",
+  GET_ALL_ASSETS_SCHEMA,
   asyncMiddleware(async (req, res) => {
-    res.json(await Asset.findAll());
+    const { active, limit, name, offset, shoppingCentreId } = req.query;
+    const where = {};
+
+    if (active !== undefined) {
+      where.active = active;
+    }
+
+    if (name !== undefined) {
+      where.name = { [Op.like]: name };
+    }
+
+    if (shoppingCentreId !== undefined) {
+      where.shoppingCentreId = shoppingCentreId;
+    }
+
+    res.json(await Asset.findAll({ limit, offset, where }));
   })
 );
 
