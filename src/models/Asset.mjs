@@ -14,19 +14,19 @@ export default sequelize => {
       },
       name: {
         type: DataTypes.STRING,
-        required: true,
+        allowNull: false,
       },
       dimensions: {
         type: DataTypes.STRING,
-        required: true,
+        allowNull: false,
       },
       location: {
         type: DataTypes.STRING,
-        required: true,
+        allowNull: false,
       },
       active: {
         type: DataTypes.BOOLEAN,
-        required: true,
+        allowNull: false,
         defaultValue: true,
       },
     },

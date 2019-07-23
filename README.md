@@ -24,6 +24,7 @@ Also, none of this was derived from any third-party boilerplate.  Feel free to s
 - [x] **MUST** have routes for Shopping Centres
 - [x] **MUST** have routes for Assets
 - [x] **MUST** persist data to a database using some flavour of SQL
+- [x] **MUST** be secured against anonymous access
 - [ ] **MUST** contain tests using a testing framework
 - [ ] **SHOULD** track which user makes changes to the data
 - [x] **SHOULD** allow marking Assets “inactive” for when they’re receiving maintenance, and re-activating them later

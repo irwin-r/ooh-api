@@ -1,4 +1,5 @@
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 import express from "express";
 import pino from "express-pino-logger";
 
@@ -7,7 +8,7 @@ import routes from "./routes";
 
 export default class Server {
   static get middlewares() {
-    return [bodyParser.json(), pino(), routes, exceptions];
+    return [bodyParser.json(), cookieParser(), pino(), routes, exceptions];
   }
 
   constructor() {

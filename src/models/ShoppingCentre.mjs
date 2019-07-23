@@ -18,7 +18,7 @@ export default sequelize => {
       },
       address: {
         type: DataTypes.STRING,
-        required: true,
+        allowNull: false,
       },
     },
     {

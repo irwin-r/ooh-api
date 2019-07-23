@@ -1,7 +1,8 @@
 import Sequelize from "sequelize";
 
-import ShoppingCentreModel from "./ShoppingCentre";
 import AssetModel from "./Asset";
+import SessionModel from "./Session";
+import ShoppingCentreModel from "./ShoppingCentre";
 
 const {
   DATABASE_DIALECT = "postgres",
@@ -24,5 +25,5 @@ export const sequelize = new Sequelize(DATABASE_NAME, DATABASE_USERNAME, DATABAS
 });
 
 export const Asset = AssetModel(sequelize);
-
+export const Session = SessionModel(sequelize);
 export const ShoppingCentre = ShoppingCentreModel(sequelize);
