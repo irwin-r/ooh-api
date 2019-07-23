@@ -8,7 +8,7 @@ export default (err, req, res, next) => {
 
   // If it's not a Boom error, we want to suppress it anyway to prevent leaking of data
   if (!Boom.isBoom(err)) {
-    return res.status(500).send();
+    return res.status(500).end();
   }
 
   const { headers, payload, statusCode } = err.output;

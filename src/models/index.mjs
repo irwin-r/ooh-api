@@ -1,6 +1,10 @@
 import Sequelize from "sequelize";
+import SequelizeMock from "sequelize-mock";
+
+import { isTestMode } from "../utils/environment";
 
 import AssetModel from "./Asset";
+import { AssetMock, SessionMock, ShoppingCentreMock } from "./mocks";
 import SessionModel from "./Session";
 import ShoppingCentreModel from "./ShoppingCentre";
 
@@ -13,17 +17,28 @@ const {
   DATABASE_USERNAME,
 } = process.env;
 
-export const sequelize = new Sequelize(DATABASE_NAME, DATABASE_USERNAME, DATABASE_PASSWORD, {
-  define: {
-    paranoid: true,
-    timestamps: true,
-  },
-  dialect: DATABASE_DIALECT,
-  host: DATABASE_HOST,
-  logging: false,
-  port: DATABASE_PORT,
-});
+const isTesting = isTestMode();
 
-export const Asset = AssetModel(sequelize);
-export const Session = SessionModel(sequelize);
-export const ShoppingCentre = ShoppingCentreModel(sequelize);
+export const sequelize = new (!isTesting ? Sequelize : SequelizeMock)(
+  DATABASE_NAME,
+  DATABASE_USERNAME,
+  DATABASE_PASSWORD,
+  {
+    define: {
+      paranoid: true,
+      timestamps: true,
+    },
+    dialect: DATABASE_DIALECT,
+    host: DATABASE_HOST,
+    logging: false,
+    port: DATABASE_PORT,
+  }
+);
+
+export const Asset = !isTesting ? AssetModel(sequelize) : sequelize.define(...AssetMock);
+
+export const Session = !isTesting ? SessionModel(sequelize) : sequelize.define(...SessionMock);
+
+export const ShoppingCentre = !isTesting
+  ? ShoppingCentreModel(sequelize)
+  : sequelize.define(...ShoppingCentreMock);
