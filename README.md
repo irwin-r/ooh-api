@@ -40,6 +40,11 @@ Also, none of this was derived from any third-party boilerplate.  Feel free to s
 - Having not used Sequelize in a while, nor previously in conjunction with ESM, these issues were an unpleasant surprise :P
 - ORMs make a case against DAOs as you're essentially doubling up in a lot of areas, but DAOs and the CQRS pattern are great for testability.  That said, as a result of ESMs not supporting function proxying, their use case was invalidated in this example :(
 
+## Requirements
+
+- Node.js 10.x
+- Postgres
+- Yarn
 
 ## Install
 
@@ -48,6 +53,16 @@ yarn
 ```
 
 ## Usage
+The following environment variables are exposed to you to configure the application:
+
+- `DATABASE_DIALECT` -- defaults to `postgres`
+- `DATABASE_HOST`
+- `DATABASE_NAME`
+- `DATABASE_PASSWORD`
+- `DATABASE_PORT`
+- `DATABASE_USERNAME`
+- `LISTEN_PORT` -- defaults to `3000`
+- `NODE_ENV` -- **must** be defined, or you can use `yarn start:local` for local development
 
 ```sh
 yarn start

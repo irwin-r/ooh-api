@@ -7,6 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node --experimental-modules src/index.mjs",
+    "start:local": "NODE_ENV=development node --experimental-modules src/index.mjs",
+    "start:prod": "NODE_ENV=production node --experimental-modules src/index.mjs",
     "test": "NODE_ENV=test mjs-mocha"
   },
   "dependencies": {
