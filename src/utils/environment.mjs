@@ -18,6 +18,10 @@ export function getEnvironment() {
   }
 }
 
+export function isTestMode() {
+  return getEnvironment() === TEST;
+}
+
 export function isProductionMode() {
   return getEnvironment() === PRODUCTION;
 }
