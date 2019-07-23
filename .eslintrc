@@ -9,7 +9,13 @@
   ],
   "plugins": ["prettier"],
   "rules": {
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.mjs"]}],
     "prettier/prettier": ["error"],
     "no-restricted-syntax": "off"
+  },
+  "env": {
+    "commonjs": true,
+    "node": true,
+    "mocha": true
   }
 }
