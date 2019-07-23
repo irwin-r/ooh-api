@@ -18,8 +18,6 @@ describe("Boom/Exception Middleware", () => {
   it("should mark non-boom exceptions as 500 and dispatch", () => {
     const res = {
       end: sinon.fake(),
-      json: sinon.fake(),
-      setHeader: sinon.fake(),
     };
 
     res.status = sinon.fake.returns(res);
@@ -39,6 +37,7 @@ describe("Boom/Exception Middleware", () => {
 
     exceptionMiddleware(Boom.notFound(), null, res, null);
 
+    assert(res.status.called);
     assert(res.json.called);
   });
 });
