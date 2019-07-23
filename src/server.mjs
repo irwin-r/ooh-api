@@ -28,4 +28,8 @@ export default class Server {
       }
     });
   }
+
+  getApplication() {
+    return this.app;
+  }
 }
